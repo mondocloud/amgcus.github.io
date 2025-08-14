@@ -1,0 +1,33 @@
+:root {
+  --bg: #0b1020;
+  --card: #11172c;
+  --text: #eaf1ff;
+  --muted: #a8b4d4;
+  --accent: #4da3ff;
+  --accent-2: #86c5ff;
+  --danger: #ff6b6b;
+  --ok: #36d399;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; }
+header, footer { padding: 20px; text-align: center; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+h2 { margin: 0 0 12px; font-size: 18px; }
+.card { width: min(1100px, 94%); margin: 16px auto; background: linear-gradient(145deg, #0f1630 0%, #0b1124 100%); border: 1px solid #1e2a4a; border-radius: 16px; padding: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03); }
+label { display: block; margin: 10px 0; color: var(--muted); }
+input, select, button { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid #26406a; background: #0e1a36; color: var(--text); outline: none; }
+button { cursor: pointer; background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%); color: #031028; font-weight: 700; border: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.4); }
+button:hover { filter: brightness(1.05); }
+.hint { color: var(--muted); font-size: 13px; margin: 6px 0 12px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pill { display: inline-block; margin-left: 12px; padding: 6px 10px; border-radius: 999px; background: #0e1a36; border: 1px solid #26406a; font-size: 12px; color: var(--muted); }
+.controls { display: flex; gap: 10px; align-items: center; }
+.controls > * { flex: 0 0 auto; }
+.controls input { width: 220px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid #1e2a4a; }
+td .btn { display: inline-block; margin-right: 6px; padding: 6px 10px; border-radius: 10px; border: 1px solid #1e2a4a; background: #0e1a36; color: var(--text); cursor: pointer; }
+td .btn.delete { border-color: #5a2b2b; background: #2a1212; color: #ffb3b3; }
+td .btn.publish { border-color: #1e3e29; background: #13261b; color: #b7ffd2; }
+#progress { margin-top: 12px; color: var(--muted); font-size: 13px; }
+.preview { width: 160px; height: 90px; border-radius: 10px; object-fit: cover; border: 1px solid #1e2a4a; }

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Media Uploader — Spades App CMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDKs -->
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.4/firebase-storage-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Media Uploader</h1>
+    <p>Images auto-resize to 320×180 and 320×480. Audio/Video upload as-is.</p>
+  </header>
+  <section class="card">
+    <h2>Sign in (temporary)</h2>
+    <p class="hint">
+      For quick testing this uses anonymous auth. Lock down later as needed.
+    </p>
+    <button id="btnSignIn">Sign In / Ensure Auth</button>
+    <span id="authState" class="pill">Signed out</span>
+  </section>
+  <section class="card">
+    <h2>Upload new media</h2>
+    <form id="uploadForm">
+      <label>Files (multiple allowed)
+        <input type="file" id="files" multiple accept="image/*,audio/*,video/*" />
+      </label>
+      <label>Hyperlink (optional)
+        <input type="url" id="hyperlink" placeholder="https://example.com" />
+      </label>
+      <div class="grid">
+        <label>Publish Start
+          <input type="datetime-local" id="startAt" />
+        </label>
+        <label>Publish End
+          <input type="datetime-local" id="endAt" />
+        </label>
+      </div>
+      <div class="grid">
+        <label>Status
+          <select id="status">
+            <option value="draft">Draft</option>
+            <option value="published" selected>Published</option>
+          </select>
+        </label>
+        <label>Tag / Channel (optional)
+          <input type="text" id="channel" placeholder="homepage, banner, etc." />
+        </label>
+      </div>
+      <button type="submit">Upload</button>
+      <div id="progress"></div>
+    </form>
+  </section>
+  <section class="card">
+    <h2>Your items</h2>
+    <div class="controls">
+      <button id="refresh">Refresh</button>
+      <label>Filter Channel
+        <input type="text" id="filterChannel" placeholder="(blank = all)" />
+      </label>
+    </div>
+    <table id="items">
+      <thead>
+        <tr>
+          <th>Preview</th>
+          <th>Type</th>
+          <th>Link</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+  <footer>
+    <p>Deployed on GitHub Pages • Backend: Firebase</p>
+  </footer>
+</body>
+</html>
